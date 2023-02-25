@@ -5,6 +5,7 @@ dist/
 .idea/
 *.log
 *.tmp
+.hintrc
 
 # Server
 

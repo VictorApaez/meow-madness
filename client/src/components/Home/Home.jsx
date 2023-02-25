@@ -10,21 +10,24 @@ function Home() {
         <Image />
         <Image />
       </div>
-      <div className="photo-grid">
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
+      <div className="pawl-of-fame">
+        <h2>Pawl of Fame</h2>
+        <div className="photo-grid">
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+          <Image />
+        </div>
       </div>
       <aside className="upload-div">
         <div className="upload-btn">Upload</div>

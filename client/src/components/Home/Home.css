@@ -1,3 +1,7 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 .home-screen * {
   border: 1px solid red;
 }
@@ -8,14 +12,14 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "top top upload"
-    "photo-grid photo-grid upload"
-    "photo-grid photo-grid .";
+    "pawl pawl upload"
+    "pawl pawl .";
   height: 100vh;
 }
 
 .top-div {
   grid-area: top;
-  background-color: #ccc;
+  background-color: white;
   margin: 50px 15px 25px 25px;
   display: flex;
   flex-direction: row;
@@ -31,19 +35,30 @@
   margin: 10px;
 }
 
+.pawl-of-fame {
+  grid-area: pawl;
+  margin: 0 10px 0 25px;
+  font-family: "Poppins", sans-serif; /* add the font-family value */
+  height: fit-content;
+}
+
+.pawl-of-fame > h2 {
+  padding-left: 25px;
+}
+
 .photo-grid {
-  grid-area: photo-grid;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 300px;
-  grid-gap: 10px;
-  margin: 0 10px 0 25px;
+  grid-gap: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
   height: fit-content;
   /* overflow-x: auto; */
 }
 
 .photo-grid .image {
-  margin: 30px;
+  margin: 25px;
 }
 
 .upload-div {
