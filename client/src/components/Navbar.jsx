@@ -1,7 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
 
 function Navbar() {
-  return <div></div>;
+  return (
+    <nav className="navbar">
+      <h1 className="navbar__logo">My App</h1>
+      <ul className="navbar__links">
+        <li className="navbar__item">
+          <Link to="/signup" className="navbar__link">
+            Sign Up
+          </Link>
+        </li>
+        <li className="navbar__item">
+          <Link to="/login" className="navbar__link">
+            Login
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
 export default Navbar;
