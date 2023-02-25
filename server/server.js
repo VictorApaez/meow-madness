@@ -2,8 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 const catImageRoutes = require("./routes/catImageRoutes.js");
 const CatImage = require("./models/CatImage.js");
+const User = require("./models/User.js");
+
 
 const app = express();
 dotenv.config();
@@ -28,6 +32,20 @@ mongoose
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch((err) => console.log(err.message));
+
+ app.post("/upload", upload.single("image"), async (req, res) => {
+   const { filename } = req.file;
+   const user = User.findOne({ username: req.body.username }); 
+   const image = new CatImage({
+     filename,
+     user,
+     url: "/uploads/" + filename,
+   });
+   await image.save();
+   res.json(image);
+ });
+
+
 
 // Test route
 app.post("/test", async (req, res) => {
