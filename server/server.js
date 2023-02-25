@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({dest: "uploads/"});
 const catImageRoutes = require("./routes/catImageRoutes.js");
+const authRoutes = require("./routes/authRoutes.js");
 const CatImage = require("./models/CatImage.js");
 const User = require("./models/User.js");
 
@@ -18,11 +19,12 @@ app.use(express.json());
 
 // API routes
 app.use("/api", catImageRoutes);
+app.use("/auth", authRoutes);
 
 // Connect to MongoDB database
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb://localhost/meowmadness", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -34,8 +36,8 @@ mongoose
 
 app.post("/upload", upload.single("image"), async (req, res) => {
   try {
-    const { filename } = req.file;
-    const user = await User.findOne({ username: req.body.username });
+    const {filename} = req.file;
+    const user = await User.findOne({username: req.body.username});
     const image = new CatImage({
       filename,
       user: user._id,
