@@ -7,5 +7,10 @@ console.log(authController);
 
 router.post("/signup", authController.userSignup);
 router.post("/login", authController.userLogin);
+router.get("/verifyUser", authController.verifyToken, (req, res) => {
+  res.json({
+    user: req.user,
+  });
+});
 
 module.exports = router;

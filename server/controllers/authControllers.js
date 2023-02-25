@@ -42,5 +42,16 @@ const userLogin = async (req, res) => {
   }
 };
 
+const verifyToken = async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } else {
+    res.status(401).json({error: "No token provided"});
+  }
+};
 
-module.exports = { userSignup, userLogin };
+module.exports = { userSignup, userLogin, verifyToken };
