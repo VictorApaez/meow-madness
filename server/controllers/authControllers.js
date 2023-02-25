@@ -6,17 +6,17 @@ const User = require("../models/User.js");
 
 const userSignup = async (req, res) => {
   try {
-    const {username, password} = req.body;
-    const user = await User.findOne({username});
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
     if (user) {
-      return res.json({error: "User already exists"});
+      return res.json({ error: "User already exists" });
     }
-    const newUser = new User({username, password});
+    const newUser = new User({ username, password });
     const salt = await bcrypt.genSalt(10);
     newUser.password = await bcrypt.hash(password, salt);
     await newUser.save();
-    const token = jwt.sign({id: newUser._id}, process.env.JWT_SECRET);
-    const data = {token};
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+    const data = { token };
     res.json(data);
   } catch (err) {
     res.json(err);
@@ -25,19 +25,22 @@ const userSignup = async (req, res) => {
 
 const userLogin = async (req, res) => {
   try {
-    const {username, password} = req.body;
-    const user = await User.findOne({username});
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
     if (!user) {
-      return res.json({error: "User does not exist"});
+      return res.json({ error: "User does not exist" });
     }
+    console.log(user);
     const validPassword = await bcrypt.compare(password, user.password);
+
     if (!validPassword) {
-      return res.json({error: "Invalid password"});
+      return res.json({ error: "Invalid password" });
     }
-    const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
-    const data = {token};
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    const data = { token, user: user.username };
     res.json(data);
   } catch (err) {
+    console.log("ISKKKKKK");
     res.json(err);
   }
 };
@@ -50,7 +53,7 @@ const verifyToken = async (req, res, next) => {
     req.user = decoded;
     next();
   } else {
-    res.status(401).json({error: "No token provided"});
+    res.status(401).json({ error: "No token provided" });
   }
 };
 

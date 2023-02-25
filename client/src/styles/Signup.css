@@ -40,3 +40,7 @@
   color: white;
   background-color: #36a5ce;
 }
+
+.signup__error {
+  color: red;
+}

@@ -6,11 +6,10 @@ export const signup = async ({ username, password }) => {
       username,
       password,
     });
-
     if (res.data.token) {
       return { token: res.data.token, success: true };
     } else {
-      return { success: false };
+      return { success: false, error: res.data.error };
     }
   } catch (err) {
     console.log(err);
@@ -23,11 +22,11 @@ export const login = async ({ username, password }) => {
       username,
       password,
     });
-
     if (res.data.token) {
-      return { token: res.data.token, success: true };
+      return { token: res.data.token, success: true, user: res.data.user };
     } else {
-      return { success: false };
+      console.log(res);
+      return { success: false, error: res.data.error };
     }
   } catch (err) {
     console.log(err);
