@@ -10,20 +10,22 @@
 .home-screen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: max-content max-content max-content;
   grid-template-areas:
     "top top upload"
     "pawl pawl upload"
     "pawl pawl .";
   height: 100vh;
+  margin: 0 auto; /* center the element horizontally */
+  max-width: 1200px; /* set a max-width to maintain white space on large screens */
 }
 
 .current-rankings {
   grid-area: top;
   margin: 20px 15px 25px 25px;
   min-width: -webkit-fill-available;
-  min-width: -webkit-min-device-pixel;
-  min-width: fit-content;
+  min-width: -webkit-min-content;
+  min-width: min-content;
 }
 
 .current-rankings > h2 {
@@ -52,7 +54,10 @@
 .pawl-of-fame {
   grid-area: pawl;
   margin: 0 10px 0 25px;
-  font-family: "Poppins", sans-serif; /* add the font-family value */
+  font-family: "Poppins", sans-serif;
+  min-width: -webkit-fill-available;
+  min-width: -webkit-max-content;
+  min-width: max-content;
   height: fit-content;
 }
 
@@ -85,6 +90,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 40px;
+  height: fit-content;
 }
 
 .upload-btn {
@@ -105,4 +111,17 @@
 
 .rules > h3 {
   text-align: center;
+}
+
+.image {
+  box-sizing: content-box;
+  background-color: #eee;
+  max-width: 150px;
+  min-width: 150px;
+  height: 200px;
+  max-height: 200px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 15px;
 }

@@ -5,6 +5,7 @@ import "./Home.css";
 function Home() {
   return (
     <div className="home-screen">
+      
       <div className="current-rankings">
         <h2>Current Rankings</h2>
         <div className="top-div">
@@ -13,6 +14,7 @@ function Home() {
           <Image />
         </div>
       </div>
+
       <div className="pawl-of-fame">
         <h2>Pawl of Fame</h2>
         <div className="photo-grid">
@@ -32,6 +34,7 @@ function Home() {
           <Image />
         </div>
       </div>
+      
       <aside className="upload-div">
         <div className="upload-btn">Upload</div>
         <div className="upload-btn">Vote</div>
