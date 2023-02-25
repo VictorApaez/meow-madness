@@ -4,6 +4,7 @@
 
 .home-screen * {
   border: 1px solid red;
+  max-width: 800px;
 }
 
 .home-screen {
@@ -20,6 +21,9 @@
 .current-rankings {
   grid-area: top;
   margin: 20px 15px 25px 25px;
+  min-width: -webkit-fill-available;
+  min-width: -webkit-min-device-pixel;
+  min-width: fit-content;
 }
 
 .current-rankings > h2 {
@@ -36,7 +40,9 @@
 }
 
 .top-div .image {
+  box-sizing: content-box;
   width: 200px;
+  min-width: 200px;
   height: 250px;
   max-width: 200px;
   max-height: 250px;
