@@ -1,7 +1,8 @@
 .image {
+  box-sizing: content-box;
   background-color: #eee;
   max-width: 150px;
-  width: 150px;
+  min-width: 150px;
   height: 200px;
   max-height: 200px;
   margin-bottom: 10px;
