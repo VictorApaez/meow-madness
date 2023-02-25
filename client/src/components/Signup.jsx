@@ -18,17 +18,7 @@ function Signup() {
             className="signup__input"
           />
         </div>
-        <div className="signup__form-group">
-          <label htmlFor="email" className="signup__label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="signup__input"
-          />
-        </div>
+
         <div className="signup__form-group">
           <label htmlFor="password" className="signup__label">
             Password
