@@ -1,0 +1,11 @@
+.image {
+  background-color: #eee;
+  max-width: 150px;
+  width: 150px;
+  height: 200px;
+  max-height: 200px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 15px;
+}
