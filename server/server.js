@@ -8,11 +8,9 @@ const catImageRoutes = require("./routes/catImageRoutes.js");
 const CatImage = require("./models/CatImage.js");
 const User = require("./models/User.js");
 
-
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware
 app.use(cors());
@@ -22,8 +20,9 @@ app.use(express.json());
 app.use("/api", catImageRoutes);
 
 // Connect to MongoDB database
+mongoose.set("strictQuery", false);
 mongoose
-  .connect(MONGO_URI, {
+  .connect("mongodb://localhost/meowmadness", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -33,32 +32,19 @@ mongoose
   })
   .catch((err) => console.log(err.message));
 
- app.post("/upload", upload.single("image"), async (req, res) => {
-   const { filename } = req.file;
-   const user = User.findOne({ username: req.body.username }); 
-   const image = new CatImage({
-     filename,
-     user,
-     url: "/uploads/" + filename,
-   });
-   await image.save();
-   res.json(image);
- });
-
-
-
-// Test route
-app.post("/test", async (req, res) => {
-  const catImage = new CatImage({
-    imageUrl: "https://example.com/cat.jpg",
-    user: "123456789012345678901234",
-    votes: 0,
-  });
-
+app.post("/upload", upload.single("image"), async (req, res) => {
   try {
-    const newCatImage = await catImage.save();
-    res.status(201).json(newCatImage);
+    const { filename } = req.file;
+    const user = await User.findOne({ username: req.body.username });
+    const image = new CatImage({
+      filename,
+      user: user._id,
+      imageUrl: "/uploads/" + filename,
+    });
+    await image.save();
+    res.json(image);
   } catch (err) {
-    res.status(400).json({message: err.message});
+    res.send(err);
   }
 });
+app.use("/uploads", express.static("uploads"));
