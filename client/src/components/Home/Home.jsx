@@ -5,10 +5,13 @@ import "./Home.css";
 function Home() {
   return (
     <div className="home-screen">
-      <div className="top-div">
-        <Image />
-        <Image />
-        <Image />
+      <div className="current-rankings">
+        <h2>Current Rankings</h2>
+        <div className="top-div">
+          <Image />
+          <Image />
+          <Image />
+        </div>
       </div>
       <div className="pawl-of-fame">
         <h2>Pawl of Fame</h2>
