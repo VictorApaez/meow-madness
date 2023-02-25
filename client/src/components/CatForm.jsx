@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import "../styles/CatForm.css";
 import Modal from "react-modal";
 
 function CatForm() {
