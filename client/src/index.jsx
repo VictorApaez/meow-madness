@@ -2,17 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
 import App from "./components/App";
-import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <Auth0Provider
-    domain="dev-q0lfml8y40meyltz.us.auth0.com"
-    clientId="T5bYg7dTDtDVsmLz1tMD9FOmTisixj2k"
-    authorizationParams={{
-      redirect_uri: window.location.origin,
-    }}
-  >
+  <BrowserRouter>
     <App />
-  </Auth0Provider>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
