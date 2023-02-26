@@ -3,7 +3,7 @@
 }
 
 .home-screen * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   max-width: 800px;
 }
 
@@ -83,7 +83,7 @@
 .upload-div {
   box-sizing: border-box;
   grid-area: upload;
-  background-color: rgba(155, 155, 155, 0.2);
+  background-color: #fffbec;
   margin: 120px 50px 0 50px;
   border-radius: 15px;
   display: flex;
@@ -96,13 +96,21 @@
 
 .upload-btn {
   background-color: rgba(105, 105, 105, 1);
-  color: whitesmoke;
+  color: #000000;
   margin: 10px;
   padding: 15px 5px;
   width: 80%;
   text-align: center;
   border-radius: 15px;
   font-size: x-large;
+}
+
+.upload-btn:first-child {
+  background-color: #ffe587;
+}
+
+.upload-btn:nth-child(2) {
+  background-color: #8fced7;
 }
 
 .rules {
