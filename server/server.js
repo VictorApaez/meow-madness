@@ -26,7 +26,6 @@ app.use("/auth", authRoutes);
 
 // Connect to MongoDB database
 mongoose.set("strictQuery", false);
-console.log(process.env.MONGO_URI);
 mongoose
   .connect(connectVar, {
     useNewUrlParser: true,
@@ -56,3 +55,14 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   }
 });
 app.use("/uploads", express.static("uploads"));
+
+app.get("/images", async (req, res) => {
+  try {
+    const images = await CatImage.find().populate("user", "username");
+
+    res.json(images);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
