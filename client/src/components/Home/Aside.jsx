@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import CatForm from "../CatForm";
+import mouse from "../../assets/images/Mouse_Icon.png";
+
 import { UserContext } from "../../context/userContext";
 
 export function Aside({ setShowLoginModal, setToggleVote }) {
@@ -28,7 +30,7 @@ export function Aside({ setShowLoginModal, setToggleVote }) {
         Vote
       </div>
       <div className="rules">
-        <h3>Rules</h3>
+        <h3><img src={mouse} alt="mouse-icon" width="25px"/>Rules</h3>
         <ul>
           <li>Each user can vote for up to 9 cats daily</li>
           <li>You may vote for each cat once</li>
