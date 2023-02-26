@@ -1,8 +1,23 @@
-import React from "react";
-export function Aside({}) {
+import React, { useState, useContext } from "react";
+import CatForm from "../CatForm";
+import { UserContext } from "../../context/userContext";
+
+export function Aside() {
+  const [toggleCatForm, setToggleCatForm] = useState(false);
+  const { user } = useContext(UserContext);
+
+  function uploadImage() {
+    console.log(user);
+    if (user !== null) {
+      setToggleCatForm(true);
+    }
+  }
+
   return (
     <aside className="upload-div">
-      <div className="upload-btn">Upload</div>
+      <div className="upload-btn" onClick={uploadImage}>
+        Upload
+      </div>
       <div className="upload-btn">Vote</div>
       <div className="rules">
         <h3>Rules</h3>
@@ -17,6 +32,10 @@ export function Aside({}) {
           <li>Rule 6</li>
         </ul>
       </div>
+      <CatForm
+        setToggleCatForm={setToggleCatForm}
+        toggleCatForm={toggleCatForm}
+      />
     </aside>
   );
 }
