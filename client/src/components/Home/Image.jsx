@@ -14,7 +14,7 @@ function Image({ data }) {
         }}
       >
         <div className="image-vote-count">{data.votes} Votes</div>
-        {/* <div className="image-description">{data.user.username}</div> */}
+        <div className="image-description">{data.user.username}</div>
       </div>
     );
   }
