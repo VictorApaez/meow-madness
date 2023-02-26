@@ -53,12 +53,13 @@
 
 .pawl-of-fame {
   grid-area: pawl;
-  margin: 0 10px 0 25px;
+  margin: 0 0 0 75px;
   font-family: "Poppins", sans-serif;
   min-width: -webkit-fill-available;
   min-width: -webkit-max-content;
   min-width: max-content;
   height: fit-content;
+  background-color: rgba(233, 252, 255, 0.56);
 }
 
 .pawl-of-fame > h2 {
