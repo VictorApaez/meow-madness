@@ -23,6 +23,9 @@
   bottom: 0; /* Align to the bottom of the parent */
   left: 0; /* Align to the left of the parent */
   right: 0; /* Align to the right of the parent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 10px 0px;
 }
