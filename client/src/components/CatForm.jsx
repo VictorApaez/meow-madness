@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/CatForm.css";
 import Modal from "react-modal";
-import { uploadCatImg } from "../services/uploadService";
+import { uploadCatImg } from "../services/imagesService";
 
 function CatForm({ toggleCatForm, setToggleCatForm }) {
   const [file, setFile] = useState(null);
