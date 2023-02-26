@@ -35,6 +35,14 @@
   text-decoration: none;
 }
 
+.nav-username-display {
+  margin-bottom: -2px;
+}
+
+.nav-username-display:hover {
+  color: #8fced7;
+}
+
 .navbar__item:hover {
-  color: #36a5ce;
+  color: #8fced7;
 }

@@ -20,7 +20,7 @@ function Navbar({showLoginModal, setShowLoginModal}) {
       <ul className="navbar__links">
         {user ? (
           <>
-            <li>Hi, {user}!</li>
+            <li className="nav-username-display">Hi, {user}!</li>
             <li className="navbar__item" onClick={logout}>
               Log Out
             </li>
