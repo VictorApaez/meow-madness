@@ -91,6 +91,7 @@
   align-items: center;
   padding-top: 40px;
   height: fit-content;
+  min-width: 250px;
 }
 
 .upload-btn {
