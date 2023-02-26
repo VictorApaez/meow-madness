@@ -6,11 +6,18 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  font-size: larger;
-  font-weight: 700;
+  font-size: x-large;
+  font-weight: 900;
   position: relative;
   top: -125px;
   left: 35px;
   z-index: 10;
   margin-left: -20px;
+}
+
+.first-place {
+  z-index: 5;
+  position: relative;
+  top: 48px;
+  left: 93px;
 }
