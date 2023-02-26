@@ -8,9 +8,7 @@ function Home() {
   return (
     <div className="home-screen">
       <TopPicks />
-
       <Pof />
-
       <Aside />
     </div>
   );
