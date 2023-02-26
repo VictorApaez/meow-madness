@@ -15,9 +15,16 @@
   margin-left: -20px;
 }
 
+.rank:first-child {
+  background-color: rgba(143, 206, 215, 1);
+
+}
+
 .first-place {
   z-index: 5;
   position: relative;
   top: 48px;
   left: 93px;
 }
+
+
