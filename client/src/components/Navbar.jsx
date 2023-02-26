@@ -3,6 +3,8 @@ import "../styles/Navbar.css";
 import { UserContext } from "../context/userContext";
 import Login from "./Login";
 import Signup from "./Signup";
+import logo from "../assets/logos/Meow_Logo_HD.png";
+
 function Navbar() {
   const { user, setUser } = useContext(UserContext);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -15,8 +17,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h1 className="navbar__logo">My App</h1>
-
+      <img className="navbar__logo" src={logo} alt="meow logo"/>
       <ul className="navbar__links">
         {user ? (
           <>
