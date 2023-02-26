@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const multer = require("multer");
-const upload = multer({dest: "uploads/"});
+const upload = multer({ dest: "uploads/" });
 const catImageRoutes = require("./routes/catImageRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const CatImage = require("./models/CatImage.js");
@@ -28,7 +28,7 @@ app.use("/auth", authRoutes);
 mongoose.set("strictQuery", false);
 console.log(process.env.MONGO_URI);
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(connectVar, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -40,9 +40,9 @@ mongoose
 
 app.post("/upload", upload.single("image"), async (req, res) => {
   try {
-    const {filename} = req.file;
+    const { filename } = req.file;
 
-    const user = await User.findOne({username: req.body.username});
+    const user = await User.findOne({ username: req.body.username });
     const image = new CatImage({
       filename,
       user: user._id,

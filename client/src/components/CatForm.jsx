@@ -8,15 +8,13 @@ function CatForm({ toggleCatForm, setToggleCatForm }) {
   const [imagePreview, setImagePreview] = useState(
     "https://www.chanchao.com.tw/VietnamPrintPack/images/default.jpg"
   );
-  const [imageData, setImageData] = useState(null);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", file);
     formData.append("username", "victor");
-    const res = await uploadCatImg(formData);
-    setImageData(res.data);
+    uploadCatImg(formData);
     setToggleCatForm(false);
   }
 
@@ -42,7 +40,11 @@ function CatForm({ toggleCatForm, setToggleCatForm }) {
           <div className="file-input-container">
             <label className="file-input">
               <input type="file" onChange={handleFileInputChange} />
-              <img className="cat-form-file-input-img" src={imagePreview} />
+              <img
+                className="cat-form-file-input-img"
+                alt="your img"
+                src={imagePreview}
+              />
             </label>
             <div className="file-input-icon">+</div>
           </div>

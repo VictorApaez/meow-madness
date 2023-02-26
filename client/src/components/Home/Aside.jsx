@@ -2,14 +2,15 @@ import React, { useState, useContext } from "react";
 import CatForm from "../CatForm";
 import { UserContext } from "../../context/userContext";
 
-export function Aside() {
+export function Aside({ setShowLoginModal }) {
   const [toggleCatForm, setToggleCatForm] = useState(false);
   const { user } = useContext(UserContext);
 
   function uploadImage() {
-    console.log(user);
     if (user !== null) {
       setToggleCatForm(true);
+    } else {
+      setShowLoginModal(true);
     }
   }
 

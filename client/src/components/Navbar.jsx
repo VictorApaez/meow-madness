@@ -3,9 +3,9 @@ import "../styles/Navbar.css";
 import { UserContext } from "../context/userContext";
 import Login from "./Login";
 import Signup from "./Signup";
-function Navbar() {
+
+function Navbar({ showLoginModal, setShowLoginModal }) {
   const { user, setUser } = useContext(UserContext);
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
 
   function logout() {

@@ -51,6 +51,7 @@
 .file-input {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .file-input input {
