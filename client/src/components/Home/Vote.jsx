@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import "./Vote.css";
 import Image from "./Image";
 import { getAllImages } from "../../services/imagesService";
+import axios from "axios";
 
 function Vote({ setToggleVote, toggleVote }) {
   const [images, setImages] = useState(null);
@@ -17,13 +18,16 @@ function Vote({ setToggleVote, toggleVote }) {
   }, []);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const checkedBoxes = e.target.querySelectorAll(
       'input[type="checkbox"]:checked'
     );
     const selectedIds = Array.from(checkedBoxes).map((checkbox) =>
       checkbox.getAttribute("data-imgid")
     );
+
+    selectedIds.forEach(async (id) => {
+      await axios.get(`http://localhost:5000/vote/${id}`);
+    });
     console.log(selectedIds);
   };
 
@@ -57,7 +61,6 @@ function Vote({ setToggleVote, toggleVote }) {
                       data-imgid={img._id}
                       className="vote-image-card-checkbox"
                     />
-                    Select
                   </label>
                 </div>
               );

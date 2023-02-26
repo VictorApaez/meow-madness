@@ -66,3 +66,14 @@ app.get("/images", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+app.get("/vote/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const image = await CatImage.findById(id);
+    console.log(image);
+    image.votes += 1;
+    await image.save();
+    res.send(`Votes are now ${image.votes}`);
+  } catch (err) {}
+});
