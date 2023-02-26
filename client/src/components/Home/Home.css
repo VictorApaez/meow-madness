@@ -151,6 +151,7 @@
   font-size: 30px;
   line-height: 45px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .upload-btn:first-child {
