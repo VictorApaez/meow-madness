@@ -23,21 +23,21 @@ function Signup({ setShowSignupModal, showSignupModal, setShowLoginModal }) {
     if (!formData.password) {
       validationErrors.password = "Password is required";
     }
-    const res = await signup(formData);
-    if (!res.success) {
-      validationErrors.other = res.error;
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
     } else {
-      localStorage.setItem("token", res.token);
-      console.log(res.user, "HELOOO");
-      setUser(res.user);
+      const res = await signup(formData);
+      if (!res.success) {
+        validationErrors.other = res.error;
+      } else {
+        localStorage.setItem("token", res.token);
+        setUser(res.user);
+        setShowSignupModal(false);
+      }
     }
-    //TODO: set validation error
 
     setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      setErrors({});
-    }
   }
 
   function switchToLogin() {
