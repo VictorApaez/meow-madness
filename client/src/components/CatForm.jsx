@@ -20,12 +20,6 @@ function CatForm() {
 
   return (
     <div className="cat-form">
-      <button
-        className="cat-form__toggle-btn"
-        onClick={() => setToggleCatForm(true)}
-      >
-        Upload
-      </button>
       {imageData && <img alt="" src={imageData.imageUrl}></img>}
       <Modal
         isOpen={toggleCatForm}
