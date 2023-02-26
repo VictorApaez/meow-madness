@@ -163,15 +163,20 @@
   background-color: #8fced7;
 }
 
+.mouse-img {
+  margin-right: 10px;
+  /* padding-top: 10px; */
+}
+
 .rules {
   width: 80%;
   margin-top: 25px;
-
 }
 
 .rules > h3 {
   text-align: center;
   text-decoration: underline;
+  margin-right: 30px;
 }
 
 .rules > ul {

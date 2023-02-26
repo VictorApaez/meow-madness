@@ -30,7 +30,7 @@ export function Aside({ setShowLoginModal, setToggleVote }) {
         Vote
       </div>
       <div className="rules">
-        <h3><img src={mouse} alt="mouse-icon" width="25px"/>Rules</h3>
+        <h3><img className="mouse-img" src={mouse} alt="mouse-icon" width="25px"/>Rules</h3>
         <ul>
           <li>Each user can vote for up to 9 cats daily</li>
           <li>You may vote for each cat once</li>
