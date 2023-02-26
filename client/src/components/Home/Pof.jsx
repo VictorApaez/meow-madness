@@ -3,11 +3,10 @@ import Image from "./Image";
 import { getAllImages } from "../../services/imagesService";
 
 export function Pof() {
-  const [images, setImages] = useState();
+  const [images, setImages] = useState(null);
   useEffect(() => {
     async function getImages() {
       const res = await getAllImages();
-      console.log(res);
       setImages(res.data);
     }
     getImages();
@@ -19,21 +18,8 @@ export function Pof() {
       <div className="photo-grid">
         {images &&
           images.map((img, i) => {
-            <Image data={img} key={i} />;
+            return <Image data={img} key={i} />;
           })}
-
-        {/* <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image />
-        <Image /> */}
       </div>
     </div>
   );
