@@ -31,11 +31,6 @@ function CatForm({ toggleCatForm, setToggleCatForm }) {
 
   return (
     <div>
-      {imageData ? (
-        <img alt="" src={imageData.imageUrl} />
-      ) : (
-        <img alt="" src={imagePreview} />
-      )}
       <Modal
         isOpen={toggleCatForm}
         onRequestClose={() => setToggleCatForm(false)}

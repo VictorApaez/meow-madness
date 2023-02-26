@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, {useState, useContext} from "react";
 import "../styles/Signup.css";
-import { signup } from "../services/authService";
+import {signup} from "../services/authService";
 import Modal from "react-modal";
-import { UserContext } from "../context/userContext";
+import {UserContext} from "../context/userContext";
 
-function Signup({ setShowSignupModal, showSignupModal, setShowLoginModal }) {
-  const { setUser } = useContext(UserContext);
+function Signup({setShowSignupModal, showSignupModal, setShowLoginModal}) {
+  const {setUser} = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -28,6 +28,7 @@ function Signup({ setShowSignupModal, showSignupModal, setShowLoginModal }) {
       setErrors(validationErrors);
     } else {
       const res = await signup(formData);
+      console.log(res);
       if (!res.success) {
         validationErrors.other = res.error;
       } else {
@@ -63,7 +64,7 @@ function Signup({ setShowSignupModal, showSignupModal, setShowLoginModal }) {
             name="username"
             className="signup__input"
             onChange={(e) =>
-              setFormData({ ...formData, username: e.target.value })
+              setFormData({...formData, username: e.target.value})
             }
           />
         </div>
@@ -78,7 +79,7 @@ function Signup({ setShowSignupModal, showSignupModal, setShowLoginModal }) {
             name="password"
             className="signup__input"
             onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
+              setFormData({...formData, password: e.target.value})
             }
           />
         </div>
