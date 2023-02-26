@@ -13,7 +13,7 @@
 }
 
 .image-vote-count {
-  background-color: rgba(143, 206, 215, 1);
+  background-color: rgba(255, 255, 255, 1);
   max-width: inherit;
   min-width: inherit;
   height: 45px;
@@ -46,4 +46,8 @@
 
 .photo-grid > .image .image-description {
   display: none;
+}
+
+.image .image-vote-count {
+  background-color: rgba(143, 206, 215, 1);
 }
