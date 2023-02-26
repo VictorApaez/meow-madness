@@ -42,7 +42,7 @@ function CatForm({ toggleCatForm, setToggleCatForm }) {
               <input type="file" onChange={handleFileInputChange} />
               <img
                 className="cat-form-file-input-img"
-                alt="your img"
+                alt="cute cat"
                 src={imagePreview}
               />
             </label>
