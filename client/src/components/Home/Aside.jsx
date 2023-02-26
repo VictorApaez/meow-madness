@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import CatForm from "../CatForm";
 import { UserContext } from "../../context/userContext";
 
-export function Aside({ setShowLoginModal }) {
+export function Aside({ setShowLoginModal, setToggleVote }) {
   const [toggleCatForm, setToggleCatForm] = useState(false);
   const { user } = useContext(UserContext);
 
@@ -14,12 +14,19 @@ export function Aside({ setShowLoginModal }) {
     }
   }
 
+  function voteButton() {
+    console.log("YUPP");
+    setToggleVote(true);
+  }
+
   return (
     <aside className="upload-div">
       <div className="upload-btn" onClick={uploadImage}>
         Upload
       </div>
-      <div className="upload-btn">Vote</div>
+      <div className="upload-btn" onClick={voteButton}>
+        Vote
+      </div>
       <div className="rules">
         <h3>Rules</h3>
         <ul>
