@@ -25,15 +25,13 @@
 
 .navbar__item {
   margin-left: 30px;
-}
-
-.navbar__link {
+  cursor: pointer;
   font-size: 16px;
   font-weight: 500;
   color: #333333;
   text-decoration: none;
 }
 
-.navbar__link:hover {
+.navbar__item:hover {
   color: #36a5ce;
 }

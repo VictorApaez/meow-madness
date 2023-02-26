@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import "../styles/Login.css";
 import { UserContext } from "../context/userContext";
 import { login } from "../services/authService";
-import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
 
-function Login() {
-  const navigate = useNavigate();
+function Login({ setShowLoginModal, showLoginModal, setShowSignupModal }) {
   const { setUser } = useContext(UserContext);
   const [formData, setFormData] = useState({
     username: "",
@@ -36,7 +34,7 @@ function Login() {
         setErrors(validationErrors);
       } else {
         setUser(res.user);
-        navigate("/home");
+        setShowLoginModal(false);
       }
     }
   }
@@ -48,8 +46,18 @@ function Login() {
     });
   }
 
+  function switchPage() {
+    setShowLoginModal(false);
+    setShowSignupModal(true);
+  }
+
   return (
-    <div className="login">
+    <Modal
+      isOpen={showLoginModal}
+      onRequestClose={() => setShowLoginModal(false)}
+      className="login"
+      overlayClassName="login-overlay"
+    >
       <h2 className="login__title">Login</h2>
       <form className="login__form" onSubmit={(e) => handleFormSubmit(e)}>
         <div className="login__form-group">
@@ -87,13 +95,14 @@ function Login() {
 
         <p className="login__signup-link">
           Don't have an account?{" "}
-          <Link to="/signup" className="login__link">
+          <span className="signup__link" onClick={switchPage}>
+            {" "}
             Sign up
-          </Link>
+          </span>
           .
         </p>
       </form>
-    </div>
+    </Modal>
   );
 }
 
