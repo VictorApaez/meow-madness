@@ -6,14 +6,16 @@
   background-color: none;
   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   height: 60px;
-  padding: 0 30px;
+  padding-right: 30px;
+  /* position: fixed;
+  top: 0; */
 }
 
 .navbar__logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333333;
-  text-decoration: none;
+  width: 150px;
+  /* position: relative;
+  left: 40%; */
+  margin-left: calc(50% - 75px);
 }
 
 .navbar__links {
@@ -22,6 +24,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 .navbar__item {
@@ -33,6 +36,14 @@
   text-decoration: none;
 }
 
+.nav-username-display {
+  margin-bottom: -2px;
+}
+
+.nav-username-display:hover {
+  color: #8fced7;
+}
+
 .navbar__item:hover {
-  color: #36a5ce;
+  color: #8fced7;
 }

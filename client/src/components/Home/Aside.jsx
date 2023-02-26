@@ -23,14 +23,9 @@ export function Aside({ setShowLoginModal }) {
       <div className="rules">
         <h3>Rules</h3>
         <ul>
-          <li>Rule 1</li>
-          <li>Rule 2</li>
-          <li>Rule 3</li>
-        </ul>
-        <ul>
-          <li>Rule 4</li>
-          <li>Rule 5</li>
-          <li>Rule 6</li>
+          <li>Each user can vote for up to 9 cats daily</li>
+          <li>You may vote for each cat once</li>
+          <li>Winners are announced weekly</li>
         </ul>
       </div>
       <CatForm

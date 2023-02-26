@@ -1,8 +1,13 @@
+* {
+  margin: 0;
+}
+
 .home-screen * {
-  border: 1px solid red;
+  min-width: 800px;
 }
 
 .home-screen {
+  margin: 60px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr 1fr;

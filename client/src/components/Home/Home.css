@@ -15,17 +15,18 @@
     "top top upload"
     "pawl pawl upload"
     "pawl pawl .";
-  height: 100vh;
-  margin: 0 auto; /* center the element horizontally */
-  max-width: 1200px; /* set a max-width to maintain white space on large screens */
+  /* height: 100%; */
+  margin: -60px auto 0 auto; /* center the element horizontally */
+  max-width: 1200px; /*set a max-width to maintain white space on large screens */
 }
 
 .current-rankings {
   grid-area: top;
-  margin: 0px 0px 25px 25px;
+  margin: 60px 0px 25px 25px;
   min-width: -webkit-fill-available;
   min-width: -webkit-min-content;
   min-width: min-content;
+  background-color: none;
 }
 
 .current-rankings > h2 {
@@ -37,7 +38,7 @@
 }
 
 .top-div {
-  background-color: white;
+  background-color: none;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -62,8 +63,8 @@
   min-width: -webkit-fill-available;
   min-width: -webkit-max-content;
   min-width: max-content;
-  height: fit-content;
-  background-color: rgba(233, 252, 255, 0.56);
+  /* height: fit-content; */
+  background-color: rgba(255, 255, 255, 0.27);
   border-radius: 15px;
 }
 
@@ -81,24 +82,60 @@
   grid-gap: 5px;
   padding-left: 20px;
   padding-right: 20px;
-  height: fit-content;
-  /* overflow-x: auto; */
+  max-height: calc(3 * 300px + 2 * 5px); /* max-height of 3 rows */
+  overflow-y: auto;
+  scrollbar-color: #92cfd5 #ffedbb; /* color of the thumb and track */
+}
+
+.photo-grid::-webkit-scrollbar {
+  width: 8px; /* width of the scrollbar */
+}
+
+.photo-grid::-webkit-scrollbar-track {
+  background: #ffedbb; /* color of the track */
+  border-radius: 5px; /* round the edges of the track */
+}
+
+.photo-grid::-webkit-scrollbar-thumb {
+  background-color: #92cfd5; /* color of the thumb */
+  border-radius: 5px; /* round the edges of the thumb */
+}
+
+.photo-grid::-webkit-scrollbar-thumb:hover {
+  background-color: #36a5ce; /* color of the thumb on hover */
+}
+
+@media (hover: none) {
+  .photo-grid {
+    scrollbar-color: #92cfd5 transparent; /* fallback color for non-hover devices */
+  }
+}
+
+/* fallback style for Firefox */
+@-moz-document url-prefix() {
+  .photo-grid {
+    scrollbar-width: thin;
+    scrollbar-color: #92cfd5 #ffedbb;
+  }
 }
 
 .photo-grid .image {
   margin: 25px;
+  max-width: 100%; /* ensure images don't overflow their containers */
+  max-height: 100%;
 }
 
 .upload-div {
   box-sizing: border-box;
   grid-area: upload;
-  background-color: #fffbec;
-  margin: 145px 50px 0 50px;
+  background-color: rgba(255, 255, 255, 0.27);
+  margin: 205px 50px 0 50px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 40px;
+  padding-bottom: 160px;
   height: fit-content;
   min-width: 250px;
 }
@@ -114,6 +151,7 @@
   font-size: 30px;
   line-height: 45px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .upload-btn:first-child {
@@ -127,10 +165,21 @@
 .rules {
   width: 80%;
   margin-top: 25px;
+
 }
 
 .rules > h3 {
   text-align: center;
+  text-decoration: underline;
+}
+
+.rules > ul {
+  padding-left: 20px;
+}
+
+.rules li {
+  list-style: circle;
+  text-decoration: none;
 }
 
 .image {
