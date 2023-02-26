@@ -9,4 +9,18 @@
   text-align: center;
   padding: 5px 0px;
   border-radius: 15px;
+  position: relative; /* Add relative positioning to parent */
+}
+
+.image-vote-count {
+  background-color: rgba(143, 206, 215, 1);
+  max-width: inherit;
+  min-width: inherit;
+  height: 45px;
+  z-index: 5;
+  border-radius: 0 0 15px 15px;
+  position: absolute; /* Add absolute positioning to child */
+  bottom: 0; /* Align to the bottom of the parent */
+  left: 0; /* Align to the left of the parent */
+  right: 0; /* Align to the right of the parent */
 }

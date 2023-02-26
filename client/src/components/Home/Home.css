@@ -97,17 +97,17 @@
 }
 
 .photo-grid::-webkit-scrollbar-thumb {
-  background-color: #92cfd5; /* color of the thumb */
+  background-color: white; /* color of the thumb */
   border-radius: 5px; /* round the edges of the thumb */
 }
 
 .photo-grid::-webkit-scrollbar-thumb:hover {
-  background-color: #36a5ce; /* color of the thumb on hover */
+  background-color: whitesmoke; /* color of the thumb on hover */
 }
 
 @media (hover: none) {
   .photo-grid {
-    scrollbar-color: #92cfd5 transparent; /* fallback color for non-hover devices */
+    scrollbar-color: white transparent; /* fallback color for non-hover devices */
   }
 }
 
@@ -115,7 +115,7 @@
 @-moz-document url-prefix() {
   .photo-grid {
     scrollbar-width: thin;
-    scrollbar-color: #92cfd5 #ffedbb;
+    scrollbar-color: white #ffedbb;
   }
 }
 
