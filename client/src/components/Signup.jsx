@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/Signup.css";
-import { Link } from "react-router-dom";
 import { signup } from "../services/authService";
-import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
+import { UserContext } from "../context/userContext";
 
-function Signup() {
-  console.log("hit");
-  const navigate = useNavigate();
+function Signup({ setShowSignupModal, showSignupModal, setShowLoginModal }) {
+  const { setUser } = useContext(UserContext);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -28,9 +28,9 @@ function Signup() {
       validationErrors.other = res.error;
     } else {
       localStorage.setItem("token", res.token);
-      navigate("/home");
+      console.log(res.user, "HELOOO");
+      setUser(res.user);
     }
-    console.log(validationErrors);
     //TODO: set validation error
 
     setErrors(validationErrors);
@@ -40,8 +40,17 @@ function Signup() {
     }
   }
 
+  function switchToLogin() {
+    setShowSignupModal(false);
+    setShowLoginModal(true);
+  }
   return (
-    <div className="signup">
+    <Modal
+      isOpen={showSignupModal}
+      onRequestClose={() => setShowSignupModal(false)}
+      className="signup"
+      overlayClassName="signup-overlay"
+    >
       <h2 className="signup__title">Sign Up</h2>
       <form className="signup__form" onSubmit={(e) => handleSubmit(e)}>
         <div className="signup__form-group">
@@ -82,13 +91,13 @@ function Signup() {
 
         <p className="signup__login-link">
           Already have an account?{" "}
-          <Link to="/login" className="signup__link">
+          <span className="signup__link" onClick={switchToLogin}>
             Login
-          </Link>
+          </span>
           .
         </p>
       </form>
-    </div>
+    </Modal>
   );
 }
 

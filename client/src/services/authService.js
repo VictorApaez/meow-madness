@@ -6,8 +6,9 @@ export const signup = async ({ username, password }) => {
       username,
       password,
     });
+    console.log(res.data);
     if (res.data.token) {
-      return { token: res.data.token, success: true };
+      return { token: res.data.token, success: true, user: res.data.user };
     } else {
       return { success: false, error: res.data.error };
     }

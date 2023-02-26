@@ -16,7 +16,8 @@ const userSignup = async (req, res) => {
     newUser.password = await bcrypt.hash(password, salt);
     await newUser.save();
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
-    const data = { token };
+
+    const data = { token, user: newUser.username };
     res.json(data);
   } catch (err) {
     res.json(err);

@@ -26,7 +26,7 @@ function CatForm() {
       >
         Upload
       </button>
-      {imageData && <img src={imageData.imageUrl}></img>}
+      {imageData && <img alt="" src={imageData.imageUrl}></img>}
       <Modal
         isOpen={toggleCatForm}
         onRequestClose={() => setToggleCatForm(false)}
