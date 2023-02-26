@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "../styles/CatForm.css";
 import Modal from "react-modal";
-import { uploadCatImg } from "../services/uploadService";
+import {uploadCatImg} from "../services/uploadService";
 
-function CatForm({ toggleCatForm, setToggleCatForm }) {
+function CatForm({toggleCatForm, setToggleCatForm}) {
   const [file, setFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(
     "https://www.chanchao.com.tw/VietnamPrintPack/images/default.jpg"
@@ -42,7 +42,11 @@ function CatForm({ toggleCatForm, setToggleCatForm }) {
           <div className="file-input-container">
             <label className="file-input">
               <input type="file" onChange={handleFileInputChange} />
-              <img className="cat-form-file-input-img" src={imagePreview} />
+              <img
+                className="cat-form-file-input-img"
+                alt="cute cat"
+                src={imagePreview}
+              />
             </label>
             <div className="file-input-icon">+</div>
           </div>
