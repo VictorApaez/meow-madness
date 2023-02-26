@@ -4,12 +4,15 @@ import { Aside } from "./Aside";
 import React from "react";
 import "./Home.css";
 
-function Home() {
+function Home({ showLoginModal, setShowLoginModal }) {
   return (
     <div className="home-screen">
       <TopPicks />
       <Pof />
-      <Aside />
+      <Aside
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+      />
     </div>
   );
 }

@@ -1,22 +1,20 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../styles/CatForm.css";
 import Modal from "react-modal";
-import {uploadCatImg} from "../services/uploadService";
+import { uploadCatImg } from "../services/uploadService";
 
-function CatForm({toggleCatForm, setToggleCatForm}) {
+function CatForm({ toggleCatForm, setToggleCatForm }) {
   const [file, setFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(
     "https://www.chanchao.com.tw/VietnamPrintPack/images/default.jpg"
   );
-  const [imageData, setImageData] = useState(null);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", file);
     formData.append("username", "victor");
-    const res = await uploadCatImg(formData);
-    setImageData(res.data);
+    uploadCatImg(formData);
     setToggleCatForm(false);
   }
 

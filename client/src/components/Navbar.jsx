@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 import "../styles/Navbar.css";
-import { UserContext } from "../context/userContext";
+import {UserContext} from "../context/userContext";
 import Login from "./Login";
 import Signup from "./Signup";
 import logo from "../assets/logos/Meow_Logo_HD.png";
 
-function Navbar() {
-  const { user, setUser } = useContext(UserContext);
-  const [showLoginModal, setShowLoginModal] = useState(false);
+function Navbar({showLoginModal, setShowLoginModal}) {
+  const {user, setUser} = useContext(UserContext);
   const [showSignupModal, setShowSignupModal] = useState(false);
 
   function logout() {
@@ -17,7 +16,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <img className="navbar__logo" src={logo} alt="meow logo"/>
+      <img className="navbar__logo" src={logo} alt="meow logo" />
       <ul className="navbar__links">
         {user ? (
           <>
